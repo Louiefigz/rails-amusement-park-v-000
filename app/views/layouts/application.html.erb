@@ -32,6 +32,20 @@
     <!-- content -->
     <div class="container"  role="main">
       <%= yield %>
+
+
+
+
+      <ul>
+
+        <li><%= link_to 'Log Out', signout_path, :method=>'delete' %></li>
+        <li><%= link_to 'Sign in', signin_path %></li>
+        <li><%= link_to 'Sign up', new_user_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+        
+      </ul>
+
+
     </div>
 
   </body>

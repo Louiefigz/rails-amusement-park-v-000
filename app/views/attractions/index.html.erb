@@ -1,0 +1,12 @@
+<h1> These are the current attractions</h1>
+
+
+
+<table>
+  <%= @attractions.each do |t| %>
+  <tr>
+      <td><%= link_to "Go on #{t.name}", attraction_path(t) %></td>
+      <td><%= button_to "Go on #{t.name}", user_path(t) %>
+  </tr>
+  <% end %>
+</table>
