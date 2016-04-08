@@ -6,6 +6,8 @@ class Ride < ActiveRecord::Base
 
 
   def take_ride
-    
+    binding.pry 
+
   end
+
 end
