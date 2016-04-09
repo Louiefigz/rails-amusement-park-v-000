@@ -1,12 +1,20 @@
 <h1> These are the current attractions</h1>
 
 
-
-<table>
-  <%= @attractions.each do |t| %>
-  <tr>
-      <td><%= link_to "Go on #{t.name}", attraction_path(t) %></td>
-      <td><%= button_to "Go on #{t.name}", user_path(t) %>
-  </tr>
+<h2>Rides</h2>
+<ul>
+  <% @attractions.each do |attraction| %>
+    <% if @current_user.admin? %>
+      <li><%= link_to "Show #{attraction.name}", attraction %></li>
+    <% else %>
+      <li><%= link_to "Go on #{attraction.name}", attraction %></li>
+    <% end %>
+    <li>Tickets: <%= attraction.tickets %></li>
+    <li>Nausea rating: <%= attraction.nausea_rating %></li>
+    <li>Happiness rating: <%= attraction.happiness_rating %></li>
+    <li>Min height:<%= attraction.min_height %></li><br>
   <% end %>
-</table>
+</ul>
+
+
+<%= link_to "New Attraction", new_attraction_path %>

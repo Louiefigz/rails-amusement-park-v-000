@@ -1,6 +1,6 @@
 class AttractionsController < ApplicationController
   def index
-
+    @current_user = current_user
     @attractions = Attraction.all
   end
 
@@ -24,6 +24,16 @@ class AttractionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @attraction = Attraction.find(params[:id])
+  end
+
+  def update
+    @attraction = Attraction.find(params[:id])
+    @attraction.update(att_params)
+    redirect_to attraction_path(@attraction)
   end
 
   private

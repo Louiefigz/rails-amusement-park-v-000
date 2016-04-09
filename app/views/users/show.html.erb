@@ -1,3 +1,8 @@
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+
+
 
 <% if @user.admin %>
   <h3><strong>ADMIN</strong></h3>
